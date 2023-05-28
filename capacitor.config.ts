@@ -5,7 +5,8 @@ const config: CapacitorConfig = {
   appName: 'guruai',
   webDir: 'build',
   server: {
-    url: '192.168.1.243:3000',
+    url: 'http://192.168.1.243:3000',
+    cleartext: true,
     androidScheme: 'https'
   }
 };
