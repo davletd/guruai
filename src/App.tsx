@@ -23,7 +23,7 @@ setupIonicReact();
 function App() {
 	return (
 		<div style={{ margin: '0 1rem 0 1rem', paddingTop: 'env(safe-area-inset-top)' }}>
-			<h1>Simons App</h1>
+			<h1>My App</h1>
 			<Outlet />
 		</div>
 	);
