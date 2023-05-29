@@ -16,16 +16,16 @@ import '@ionic/react/css/display.css';
 import { setupIonicReact } from '@ionic/react';
 
 import { Outlet } from 'react-router-dom';
+import { IonApp } from '@ionic/react';
 import './App.css';
 
 setupIonicReact();
 
 function App() {
 	return (
-		<div style={{ margin: '0 1rem 0 1rem', paddingTop: 'env(safe-area-inset-top)' }}>
-			<h1>My App</h1>
+		<IonApp style={{ paddingTop: 'env(safe-area-inset-top)' }}>
 			<Outlet />
-		</div>
+		</IonApp>
 	);
 }
 

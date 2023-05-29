@@ -1,3 +1,26 @@
-.Welcome {
-	background-color: black;
+@import '../pallete.scss';
+
+.Body {
+	background-image: url("../../public/welcome.png");
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+	margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Text {
+  background-color: rgba($white, 0.8); /* White background with 60% opacity */
+	border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.Button {
+	margin-top: 20px;
 }

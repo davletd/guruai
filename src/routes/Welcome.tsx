@@ -1,4 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import {
+	IonButton,
+	IonContent,
+	IonCard,
+	IonCardContent,
+	IonIcon,
+	IonInput,
+	IonItem,
+	IonLabel,
+	useIonAlert,
+	useIonLoading
+} from '@ionic/react';
+
 import styles from './Welcome.module.scss';
 
 const Welcome = () => {
@@ -9,10 +22,16 @@ const Welcome = () => {
 	};
 
 	return (
-		<div className={styles.Welcome}>
-			<h2>Welcome</h2>
-			<button>Next</button>
-		</div>
+		<IonContent>
+			<div className={styles.Body}>
+				<div className={styles.Text}>
+					<IonLabel>Welcome to the journey into better self</IonLabel>
+				</div>
+				<div className={styles.Button}>
+					<IonButton>Begin</IonButton>
+				</div>
+			</div>
+		</IonContent>
 	);
 }
 
