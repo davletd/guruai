@@ -2,6 +2,13 @@ PODS:
   - Capacitor (5.0.4):
     - CapacitorCordova
   - CapacitorCordova (5.0.4)
+  - CapacitorFirebaseAuthentication (5.0.0):
+    - Capacitor
+    - CapacitorFirebaseAuthentication/Lite (= 5.0.0)
+    - FirebaseAuth (= 10.8.0)
+  - CapacitorFirebaseAuthentication/Lite (5.0.0):
+    - Capacitor
+    - FirebaseAuth (= 10.8.0)
   - CapacitorPushNotifications (5.0.4):
     - Capacitor
   - CapacitorToast (5.0.4):
@@ -11,6 +18,13 @@ PODS:
   - Firebase/Messaging (10.10.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 10.10.0)
+  - FirebaseAppCheckInterop (10.10.0)
+  - FirebaseAuth (10.8.0):
+    - FirebaseAppCheckInterop (~> 10.0)
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
   - FirebaseCore (10.10.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
@@ -52,6 +66,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.11.1):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (3.1.1)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -62,6 +77,7 @@ PODS:
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorFirebaseAuthentication (from `../../node_modules/@capacitor-firebase/authentication`)"
   - "CapacitorPushNotifications (from `../../node_modules/@capacitor/push-notifications`)"
   - "CapacitorToast (from `../../node_modules/@capacitor/toast`)"
   - Firebase/Messaging
@@ -69,12 +85,15 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Firebase
+    - FirebaseAppCheckInterop
+    - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
     - FirebaseInstallations
     - FirebaseMessaging
     - GoogleDataTransport
     - GoogleUtilities
+    - GTMSessionFetcher
     - nanopb
     - PromisesObjC
 
@@ -83,6 +102,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorFirebaseAuthentication:
+    :path: "../../node_modules/@capacitor-firebase/authentication"
   CapacitorPushNotifications:
     :path: "../../node_modules/@capacitor/push-notifications"
   CapacitorToast:
@@ -91,18 +112,22 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Capacitor: d3d4463573438b9fa65326d1f3549da6f4c21634
   CapacitorCordova: b1fe6bf1f36974a8e4a9044b342d22d49c0996d6
+  CapacitorFirebaseAuthentication: f2e3c2a7488b87078025855588670840f93a721e
   CapacitorPushNotifications: 3704ac3dac68a9bfc669fb384cbc7beec9b1f100
   CapacitorToast: fcc4329f01d06cf02f190f8f5ce7f16509a2263c
   Firebase: facd334e557a979bd03a0b58d90fd56b52b8aba0
+  FirebaseAppCheckInterop: 7d3521f56872cf74a01792c0a095a30e054ff6ae
+  FirebaseAuth: 28e6fff787467cd15ab51c8c7aa904003b2f57aa
   FirebaseCore: d027ff503d37edb78db98429b11f580a24a7df2a
   FirebaseCoreInternal: 971029061d326000d65bfdc21f5502c75c8b0893
   FirebaseInstallations: 52153982b057d3afcb4e1fbb3eb0b6d00611e681
   FirebaseMessaging: 8a3b9a8b98ce72a42d22e69865cf662e38d2d6f5
   GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
+  GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: 8a6281cce0ec49840c472f1080cc8657709d9932
+PODFILE CHECKSUM: fd054aff2d626631eefd5e22174195a737e74d02
 
 COCOAPODS: 1.10.1

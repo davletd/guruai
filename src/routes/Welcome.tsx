@@ -23,8 +23,8 @@ import styles from './Welcome.module.scss';
 const Welcome = () => {
 	const navigate = useNavigate();
 
-	const onLogout = () => {
-		navigate('/');
+	const onClick = () => {
+		navigate('/Login');
 	};
 
 	const nullEntry: any[] = []
@@ -121,7 +121,7 @@ const Welcome = () => {
 					<IonLabel>Welcome to the journey into better self</IonLabel>
 				</div>
 				<div className={styles.Button}>
-					<IonButton>Begin</IonButton>
+					<IonButton onClick={onClick}>Begin</IonButton>
 					<IonButton color="success" expand="full" onClick={register}>Register for Push</IonButton>
 				</div>
 			</div>

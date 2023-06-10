@@ -11,28 +11,49 @@ import {
 } from '@ionic/react';
 import { useNavigate } from 'react-router-dom';
 import { logIn } from 'ionicons/icons';
+import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
 
 function Login() {
 	const navigate = useNavigate();
 	const [alert] = useIonAlert();
 	const [present, dismiss] = useIonLoading();
 
+	const createUserWithEmailAndPassword = async () => {
+		const result = await FirebaseAuthentication.createUserWithEmailAndPassword({
+			email: 'mail@exmaple.com',
+			password: '123456',
+		});
+		console.log("result: ", result);
+		return result.user;
+	};
+
+	const signInWithEmailAndPassword = async () => {
+		const result = await FirebaseAuthentication.signInWithEmailAndPassword({
+			email: 'mail@exmaple.com',
+			password: '123456',
+		});
+		console.log("result: ", result);
+		return result.user;
+	};
+
 	const onSubmit = async (event: any) => {
 		event.preventDefault();
-		await present({ message: 'Loading...' });
+		signInWithEmailAndPassword();
+		//createUserWithEmailAndPassword();
+		// await present({ message: 'Loading...' });
 
-		setTimeout(() => {
-			dismiss();
-			if (Math.random() < 0.5) {
-				alert({
-					header: 'Invalid credentials',
-					message: 'There is no user with that name and password.',
-					buttons: [{ text: 'Ok' }]
-				});
-			} else {
-				navigate('/app/dashboard');
-			}
-		}, 1500);
+		// setTimeout(() => {
+		// 	dismiss();
+		// 	if (Math.random() < 0.5) {
+		// 		alert({
+		// 			header: 'Invalid credentials',
+		// 			message: 'There is no user with that name and password.',
+		// 			buttons: [{ text: 'Ok' }]
+		// 		});
+		// 	} else {
+		// 		navigate('/app/dashboard');
+		// 	}
+		// }, 1500);
 	};
 
 	return (
