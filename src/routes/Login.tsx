@@ -13,10 +13,11 @@ import { useNavigate } from 'react-router-dom';
 import { logIn } from 'ionicons/icons';
 import { FirebaseAuthentication } from '@capacitor-firebase/authentication';
 
-function Login() {
+const Login = (props: any) => {
 	const navigate = useNavigate();
 	const [alert] = useIonAlert();
 	const [present, dismiss] = useIonLoading();
+	const setUser = props.setUser;
 
 	const createUserWithEmailAndPassword = async () => {
 		const result = await FirebaseAuthentication.createUserWithEmailAndPassword({
@@ -24,7 +25,7 @@ function Login() {
 			password: '123456',
 		});
 		console.log("result: ", result);
-		return result.user;
+		setUser(result.user);
 	};
 
 	const signInWithEmailAndPassword = async () => {
@@ -33,28 +34,20 @@ function Login() {
 			password: '123456',
 		});
 		console.log("result: ", result);
-		return result.user;
+		setUser(result.user);
 	};
 
 	const onSubmit = async (event: any) => {
 		event.preventDefault();
-		signInWithEmailAndPassword();
-		//createUserWithEmailAndPassword();
-		// await present({ message: 'Loading...' });
-
-		// setTimeout(() => {
-		// 	dismiss();
-		// 	if (Math.random() < 0.5) {
-		// 		alert({
-		// 			header: 'Invalid credentials',
-		// 			message: 'There is no user with that name and password.',
-		// 			buttons: [{ text: 'Ok' }]
-		// 		});
-		// 	} else {
-		// 		navigate('/app/dashboard');
-		// 	}
-		// }, 1500);
+		await signInWithEmailAndPassword();
+		navigate('/app/dashboard');
 	};
+
+	const signUp = async (event: any) => {
+		event.preventDefault();
+		await createUserWithEmailAndPassword();
+		navigate('/app/dashboard');
+	}
 
 	return (
 		<>
@@ -75,6 +68,13 @@ function Login() {
 							<IonButton expand="full" type="submit" color="secondary">
 								<IonIcon icon={logIn} slot="start" />
 								Login
+							</IonButton>
+						</div>
+
+						<div className="ion-margin-top">
+							<IonButton onClick={signUp} expand="full" color="secondary">
+								<IonIcon icon={logIn} slot="start" />
+								Sign up
 							</IonButton>
 						</div>
 					</form>
