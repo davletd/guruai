@@ -1,9 +1,7 @@
 import React from 'react';
 import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 
-import './main.css';
-
-function Example() {
+const PageContent = (props: any) => {
   return (
     <>
       <IonHeader>
@@ -68,4 +66,4 @@ function Example() {
     </>
   );
 }
-export default Example;
+export default PageContent;

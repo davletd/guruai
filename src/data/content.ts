@@ -1,4 +1,5 @@
 const day_0 = {
+	id: 0,
 	title: "Day 0",
 	description: "Welcome to Day 0",
 	text: `
@@ -113,6 +114,7 @@ better love,
 Davlet 🌸`};
 
 const day_1 = {
+	id: 1,
 	title: "Day 1",
 	description: "Welcome to Day 1",
 	text: `
