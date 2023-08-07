@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 import CardTile from '../components/CardTile';
+import shadowContent from '../data/content';
 
 const Dashboard = (props: any) => {
 	const navigate = useNavigate();
@@ -26,11 +27,15 @@ const Dashboard = (props: any) => {
 		});
 	}, [user]);
 
+	console.log(shadowContent);
+
 	return (
 		<>
 			<h2>Dashboard</h2>
 			<div>{user.email}</div>
-			<CardTile />
+			{
+				shadowContent.map(value => <CardTile content={value}/>)
+			}
 			<button onClick={onLogout}>Logout</button>
 		</>
 	);
