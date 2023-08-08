@@ -1,7 +1,9 @@
 import React from 'react';
 import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
+import { useParams } from 'react-router-dom';
 
 const PageContent = (props: any) => {
+  const { dayId } = useParams();
   return (
     <>
       <IonHeader>
