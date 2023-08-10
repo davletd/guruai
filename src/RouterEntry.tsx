@@ -8,6 +8,7 @@ import PageContent from './routes/PageContent';
 
 const RouterEntry = () => {
 
+	const [authUser, setAuthUser] = useState({});
 	const [user, setUser] = useState({});
 
 	return (
@@ -15,8 +16,8 @@ const RouterEntry = () => {
 			<Routes>
 				<Route path="/" element={<App />}>
 					<Route path="/" element={<Welcome />} />
-					<Route path="/Login" element={<Login setUser={setUser}/>} />
-					<Route path="/app/dashboard" element={<Dashboard user={user} />} />
+					<Route path="/Login" element={<Login setAuthUser={setAuthUser}/>} />
+					<Route path="/app/dashboard" element={<Dashboard authUser={authUser} user={user} setUser={setUser}/>} />
 					<Route path="/app/day/:dayId" element={<PageContent user={user} />} />
 					<Route
 						path="*"

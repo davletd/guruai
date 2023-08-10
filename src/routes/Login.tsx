@@ -17,7 +17,7 @@ const Login = (props: any) => {
 	const navigate = useNavigate();
 	const [alert] = useIonAlert();
 	const [present, dismiss] = useIonLoading();
-	const setUser = props.setUser;
+	const setAuthUser = props.setAuthUser;
 
 	const createUserWithEmailAndPassword = async () => {
 		const result = await FirebaseAuthentication.createUserWithEmailAndPassword({
@@ -25,7 +25,7 @@ const Login = (props: any) => {
 			password: '123456',
 		});
 		console.log("result: ", result);
-		setUser(result.user);
+		setAuthUser(result.user);
 	};
 
 	const signInWithEmailAndPassword = async () => {
@@ -34,7 +34,7 @@ const Login = (props: any) => {
 			password: '123456',
 		});
 		console.log("result: ", result);
-		setUser(result.user);
+		setAuthUser(result.user);
 	};
 
 	const onSubmit = async (event: any) => {
