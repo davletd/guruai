@@ -2,6 +2,9 @@ import React from 'react';
 import axios from "axios";
 import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 import { useParams } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import { useNavigate } from 'react-router-dom';
+import 'react-quill/dist/quill.bubble.css';
 
 import shadowContent from '../data/content';
 
@@ -9,6 +12,7 @@ const PageContent = (props: any) => {
   const { dayId } = useParams();
   const id = parseInt(dayId || "0");
   const user = props.user;
+  const navigate = useNavigate();
 
   const onCompleteDay = async (event: any) => {
 		event.preventDefault();
@@ -35,6 +39,7 @@ const PageContent = (props: any) => {
       </IonHeader>
       <IonContent fullscreen={true} className="ion-padding">
         {shadowContent[id].text}
+        <ReactQuill theme="bubble" placeholder="Content goes here..."/>
       </IonContent>
       <IonFooter>
         <IonToolbar>
