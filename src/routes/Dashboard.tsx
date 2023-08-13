@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 
 import CardTile from '../components/CardTile';
 import shadowContent from '../data/content';
@@ -27,17 +28,21 @@ const Dashboard = (props: any) => {
 		});
 	}, [user]);
 
-	console.log(shadowContent);
+	const isCompleted = (contentDayId: number) => {
+		if (!user || !user.completed_days)
+			return false;
+		return user.completed_days.some((completedDay: { dayId: number; }) => completedDay.dayId === contentDayId);
+	}
 
 	return (
-		<>
+		<IonContent>
 			<h2>Dashboard</h2>
 			<div>{user.userEmail}</div>
 			{
-				shadowContent.map(value => <CardTile content={value}/>)
+				shadowContent.map(dayContent => <CardTile content={dayContent} isCompleted={isCompleted(dayContent.id)}/>)
 			}
 			<button onClick={onLogout}>Logout</button>
-		</>
+		</IonContent>
 	);
 }
 

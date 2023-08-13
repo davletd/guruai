@@ -13,7 +13,7 @@ const PageContent = (props: any) => {
   const onCompleteDay = async (event: any) => {
 		event.preventDefault();
 		axios
-		  .post("http://127.0.0.1:5001/guruai-e5d66/us-central1/app/user/completed", { userId: user.uid, dayId: id})
+		  .post("http://127.0.0.1:5001/guruai-e5d66/us-central1/app/user/completed", { userId: user.userId, dayId: id})
 		
 		//.post("https://us-central1-guruai-core.cloudfunctions.net/app/user", { userId: user.uid, userName: user.email })
 		.then((res) => {
