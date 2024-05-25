@@ -31,13 +31,13 @@ setupIonicReact();
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyACsFad0okQR335_ZIPFzcCIoAoT7vKQsM",
-  authDomain: "guruai-e5d66.firebaseapp.com",
-  projectId: "guruai-e5d66",
-  storageBucket: "guruai-e5d66.appspot.com",
-  messagingSenderId: "189040479012",
-  appId: "1:189040479012:web:29e8446e32828dc83d41b1",
-  measurementId: "G-P4XMPSNF1W"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID
 };
 
 // Initialize Firebase
