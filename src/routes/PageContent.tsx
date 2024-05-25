@@ -4,6 +4,7 @@ import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar, IonButton } fro
 import { useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { useNavigate } from 'react-router-dom';
+import debounce from 'lodash.debounce';
 import 'react-quill/dist/quill.bubble.css';
 
 import shadowContent from '../data/content';
@@ -58,10 +59,24 @@ const PageContent = (props: any) => {
 		});
 	};
 
+  const saveToServer = debounce((content) => {
+    axios
+		  .post("http://127.0.0.1:5001/guruai-e5d66/us-central1/app/user/notes", { userId: user.userId, dayId: id, notes: content})
+		
+		//.post("https://us-central1-guruai-core.cloudfunctions.net/app/user", { userId: user.uid, userName: user.email })
+		.then((res) => {
+			// Update the response state with the server's response
+			console.log(res.data)
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+  }, 1000);
+
   const onTextChange = async (newContent: any) => {
     await storage.set('draftContent', newContent);
     setContent(newContent);
-    //saveToServer(newContent);
+    saveToServer(newContent);
   }
 
   return (
